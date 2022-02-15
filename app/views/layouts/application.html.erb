@@ -13,20 +13,27 @@
   <body>
     <% if user_signed_in? %>
       <li>
-        <%= link_to "home", root_path %>
+        <%= link_to "Home", root_path %>
       </li>
       <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
+        <%= link_to "Users", user_path(current_user.id) %>
       </li>
       <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      <%= link_to 'Books', book_path(current_book.id) %>
+      </li>
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
         <%= link_to "Home", root_path %>
       </li>
       <li>
+        <%= link_to "About", home_about_path %>
+      </li>
+      <li>
         <%= link_to "Sign up", new_user_registration_path %>
+
       </li>
       <li>
         <%= link_to "Login", new_user_session_path %>

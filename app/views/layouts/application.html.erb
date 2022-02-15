@@ -19,7 +19,7 @@
         <%= link_to "Users", user_path(current_user.id) %>
       </li>
       <li>
-      <%= link_to 'Books', book_path(current_book.id) %>
+      <%= link_to 'Books', book_path %>
       </li>
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
@@ -36,7 +36,7 @@
 
       </li>
       <li>
-        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Log in", new_user_session_path %>
       </li>
     <% end %>
     <%= yield %>

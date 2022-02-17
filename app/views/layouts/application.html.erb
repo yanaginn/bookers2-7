@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <p><a href="/top">Bookers</a></p>
+    <p><a href="/">Bookers</a></p>
 
     <% if user_signed_in? %>
       <li>
@@ -42,5 +42,9 @@
       </li>
     <% end %>
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>

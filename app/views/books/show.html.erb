@@ -1,9 +1,13 @@
-<div>
-  <%= image_tag @book.get_image %>
-  <p>Title：<%= @book.title %></p>
-  <p>Opinion：<%= @book.body %></p>
-  <p>投稿ユーザー画像：<%= image_tag 'sample-author1.jpg' %>
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
-  <% end %>
-</div>
+<h2>Book detail</h2>
+
+<% if @user.image.attached? %>
+  <%= image_tag @user.image, size: "40x40" %>
+<% else %>
+  <%= image_tag 'no_image', size: "40x40" %>
+<% end %>
+
+<p><%= @book.title %></p>
+<p><%= @book.body %></p>
+
+<%= link_to "Edit", edit_book_path %>
+<%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>

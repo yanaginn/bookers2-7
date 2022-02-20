@@ -1,13 +1,36 @@
-<h2>Book detail</h2>
+<main>
+  <p id="notice"></p>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-3'>
+          <div>
+            <%= render 'books/list', user: @user, book: @book %>
+          </div>
+        </div>
 
-<% if @user.image.attached? %>
-  <%= image_tag @user.image, size: "40x40" %>
-<% else %>
-  <%= image_tag 'no_image', size: "40x40" %>
-<% end %>
+        <div class='col-md-8 offset-md-1'>
+          <h2>Book detail</h2>
+            <table class='table'>
+              <tr>
+                <td>
+                  <% if @user.image.attached? %>
+                    <%= image_tag @user.image, size: "40x40" %>
+                  <% else %>
+                    <%= image_tag 'no_image', size: "40x40" %>
+                  <% end %>
+                </td>
+                <td><%= @book.title %></td>
+                <td><%= @book.body %></td>
 
-<p><%= @book.title %></p>
-<p><%= @book.body %></p>
-
-<%= link_to "Edit", edit_book_path %>
-<%= link_to "Destroy", books_path, method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <td><%= link_to edit_book_path(@book), class: "btn-sm btn-success edit_book_46384" do %>Edit
+                    <% end %>
+                </td>
+                <td><%= link_to book_path(@book), class: "btn btn-sm btn-danger destroy_book_46384", method: :delete, "data-confirm" => "本当に削除しますか？" do %>Destroy
+                    <% end %>
+                </td>
+              </tr>
+            </table>
+        </div>
+      </div>
+    </div>
+</main>

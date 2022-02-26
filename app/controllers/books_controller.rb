@@ -35,6 +35,7 @@ class BooksController < ApplicationController
     @books = @user.books
     @book = Book.find(params[:id])
     @book_new = Book.new
+    @book_comment = BookComment.new
   end
 
   def update
@@ -52,6 +53,9 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
+
+    BookComment.find(params[:id]).destroy
+    redirect_to book_path(params[:book_id])
   end
 
 

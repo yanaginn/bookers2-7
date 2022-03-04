@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
     @book = Book.new
+    @all_ranks = Book.find(Like.group(:book_id).order('count(book_id) desc').pluck(:book_id))
   end
 
   def create
